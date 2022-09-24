@@ -106,6 +106,18 @@ act_weather_data$month <- factor(act_weather_data$month, levels = unique(act_wea
 act_weather_data$year <- factor(act_weather_data$year, levels = sort(unique(act_weather_data$year)), 
                                 labels = seq_along(sort(unique(act_weather_data$year))))
 
+# there are three numeric columns which have NA values, which are "Speed_of_maximum_wind_gust(km/h)", "9am_Temperature" and "3pm_Temperature)".
+# assign the median values where there was NA as value.
+
+# getting all the numeric columns
+numericColumns <- act_weather_data[colnames(act_weather_data[unlist(lapply(act_weather_data, is.numeric))])]
+# getting the column names that has NA value
+naColumnNames <- colnames(numericColumns)[colSums(is.na(numericColumns)) > 0]
+# iterate through the column names and assign median value
+for (name in naColumnNames){
+  temp <- as.numeric(unlist(act_weather_data[name]))
+  act_weather_data[name][is.na(act_weather_data[name])] <- median(temp, na.rm = TRUE)
+}
 
 #save the file
 
