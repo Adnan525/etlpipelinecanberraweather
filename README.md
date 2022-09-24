@@ -11,16 +11,17 @@ Copyright of Bureau of Meteorology materials resides with the Commonwealth of Au
   
 
 
+# Data preparation:  
 A few of the datasets has date set as US-date format, at the beginning of the data cleansing process all Date columns from each 39 file has been converted into R default YYYY-MM-DD format.  
   
 
-# Summary :   
-We start with exploring the data.
-Adding all the data to a single data frame.
-Make necessary changes to the data type in the data frame.
-Drop any column that has no value.
-Drop any column that has more than 90% NA values.
-Replace NA values from all numeric columns with median values.
-Create a month and year columns.
-Assign levels to the month and column.
+# Summary:   
+We start with exploring the data.  
+Adding all the data to a single data frame.  
+Make necessary changes to the data type in the data frame.  
+Drop any column that has no value.  
+Drop any column that has more than 90% NA values.  
+Replace NA values from all numeric columns with median values.  
+Create a month and year columns.  
+Assign levels to the month and column.  
 At the end, store the clean data as a csv file. 
